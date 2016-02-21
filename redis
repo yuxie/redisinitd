@@ -25,11 +25,10 @@ case $1 in
     ;;
   stop)
     if [ -f "/var/run/redis.pid" ]; then
-      kill -TERM `cat /var/run/redis.pid`
-      echo stopping redis...
-    else
-      echo stopped already
+      /usr/local/redis/src/redis-cli -s /tmp/redis.sock shutdown
+      echo shutting down
     fi
+    echo stopped
     exit 0
     ;;
   status)

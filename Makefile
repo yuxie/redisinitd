@@ -26,11 +26,13 @@ ALL:
 	$(error install as root. perhaps try sudo make))
 	wget http://download.redis.io/releases/redis-3.0.7.tar.gz
 	tar xzf redis-3.0.7.tar.gz && rm redis-3.0.7.tar.gz && cd redis-3.0.7 && make
-	rm -rf /usr/local/redis && mv redis-3.0.7 /usr/local/redis
-	rm -rf /etc/redis && mkdir /etc/redis && cp redis.conf /etc/redis/redis.conf
 	if [ ! -d "/data/redis/" ]; then mkdir -p /data/redis; fi
-	rm -rf /etc/init.d/redis && cp redis /etc/init.d/redis
+	if [ ! -d "/etc/redis/" ]; then mkdir /etc/redis; fi
+	if [ -f "/etc/redis/redis.conf" ]; then rm /etc/redis/redis.conf; fi
+	if [ -f "/etc/init.d/redis" ]; then /etc/init.d/redis stop && rm /etc/init.d/redis; fi
+	rm -rf /usr/local/redis && mv redis-3.0.7 /usr/local/redis
+	cp redis.conf /etc/redis/redis.conf
+	cp redis /etc/init.d/redis
 	chmod a+x /etc/init.d/redis
 	update-rc.d redis defaults
-	@echo kk
 	@echo init.d service installed

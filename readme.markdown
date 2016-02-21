@@ -1,4 +1,4 @@
-# redis w/ init.d service on linux
+# redis init.d service on linux
 per defaults in [/etc/redis/redis.conf](redis.conf), we listen on a unix domain
 socket at `/var/run/redis.sock`.
 

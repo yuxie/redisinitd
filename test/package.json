@@ -1,8 +1,0 @@
-{
-  "name":"redisinitd",
-  "author":"reqshark",
-  "dependencies"  : {
-    "hiredis"       :   "0.4.1",
-    "redis"         :   "2"
-  }
-}

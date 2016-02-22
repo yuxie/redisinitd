@@ -30,7 +30,7 @@ set -e
 # tune system for better redis performance
 if [ ! -f $PERF ]; then
   echo "tunning redis..." &>> $PERF
-  echo never &> $KERNELPG && cat $KERNELPG &>> $PERF
+  echo never > $KERNELPG && cat $KERNELPG &>> $PERF
   sysctl -w net.core.somaxconn=65535 &>> $PERF
   sysctl -w vm.overcommit_memory=1 &>> $PERF
   echo "tuned." &>> $PERF && cat $PERF

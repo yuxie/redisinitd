@@ -52,7 +52,7 @@ install:
 	#chkconfig --add redis
 	/opt/redis/utils/install_server.sh
 
-	cp redis-sentinel /etc/init.d/redis
+	cp redis-sentinel /etc/init.d/redis-sentinel
 	chmod a+x /etc/init.d/redis-sentinel
 	chkconfig --add redis-sentinel
 

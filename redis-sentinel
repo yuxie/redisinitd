@@ -12,6 +12,12 @@
 NAME="redis-sentinel"
 DAEMON="/usr/local/bin/redis-sentinel"
 
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
 [ -f /etc/default/rcS ] && . /etc/default/rcS
 
 test -x $DAEMON || exit 0

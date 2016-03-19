@@ -12,7 +12,6 @@
 NAME="redis-sentinel"
 DAEMON="/usr/local/bin/redis-sentinel"
 
-. /lib/lsb/init-functions
 [ -f /etc/default/rcS ] && . /etc/default/rcS
 
 test -x $DAEMON || exit 0

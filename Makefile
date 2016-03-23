@@ -23,10 +23,10 @@ endif
 eq = $(and $(findstring $(1),$(2)),$(findstring $(2),$(1)))
 
 ALL:
-	$(if $(call eq, $(shell whoami), root), @echo installing, \
-	$(error make as root. perhaps try sudo make))
-	#$(if $(HAVE_REDIS), $(error redis already installed. do sudo make install), \
-	@echo installing redis)
+	#$(if $(call eq, $(shell whoami), root), @echo installing, \
+	#$(error make as root. perhaps try sudo make))
+	# $(if $(HAVE_REDIS), $(error redis already installed. do sudo make install), \
+	#@echo installing redis)
 	if [ ! -d "/opt/sbin/" ]; then mkdir -p /opt/sbin/; fi
 	wget http://download.redis.io/releases/redis-3.0.7.tar.gz
 	tar xzf redis-3.0.7.tar.gz && rm redis-3.0.7.tar.gz && cd redis-3.0.7 && make

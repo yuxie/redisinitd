@@ -1,3 +1,19 @@
+###############
+# SysV Init Information
+# chkconfig: - 58 74
+# description: redis-sentinel is the redis-sentinel daemon.
+### BEGIN INIT INFO
+# Provides: redis-sentinel
+# Required-Start: $network $local_fs $remote_fs
+# Required-Stop: $network $local_fs $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Should-Start: $syslog $named
+# Should-Stop: $syslog $named
+# Short-Description: start and stop redis-sentinel
+# Description: Redis daemon
+### END INIT INFO
+
 NAME=redis-sentinel
 BIN=/usr/local/bin/redis-server # --1--
 CONF=/etc/redis/sentinel.conf
